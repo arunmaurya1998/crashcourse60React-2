@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic List Rendering</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your ItemList component code will go here
+
+      //   return <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>{children}</div>;
+
+      //   function Gallary({ children }) {
+      //     return (
+      //       <div
+      //         style={{
+      //           backgroundColor: "lightblue",
+      //           border: "1px solid red",
+      //           dispaly: "grid",
+      //           gridTemlateColums: "repeat(4,1fr)",
+      //           gap: "10px",
+      //         }}
+      //       >
+      //         {children}
+      //       </div>
+      //     );
+      //   }
+
+      function Gallery({ children }) {
+        return (
+          <div
+            style={{
+              border: "1px solid red",
+              dispaly: "grid",
+              gridTemlateColums: "repeat(4,1fr)",
+              gap: "10px",
+              height: "200px",
+            }}
+          >
+            {children}
+          </div>
+        );
+      }
+
+      function Image({ src }) {
+        return (
+          <img
+            src={src}
+            style={{ width: "50%", height: "100%", margin: "20px", margin:"10px",margin:"auto"}}
+          />
+        );
+      }
+
+      function App() {
+        return (
+          <Gallery>
+            <Image src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5z6MCCSYYRWCiVDmoNaRZ1qEwl6MlQCOzkSBJbdMlg&s" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm0lSWiO9Wcqo4qhXtW3meJ1Hy0gZxclOi8v4sXT36Fg&s" />
+            <Image src="https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+          </Gallery>
+        );
+      }
+
+      let reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+      reactRoot.render(<App />);
+    </script>
+  </body>
+</html>

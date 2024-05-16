@@ -13,21 +13,23 @@
     <script type="text/babel">
       // Your ItemList component code will go here
 
-      let arr = ["Apple", "Banana", "Cherry", "Orange", "Lichhi", "Pineapple"];
+      let arr = [
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Orange",
+        "",
+        "Lichhi",
+        "Pineapple",
+      ];
 
       function ItemList({ items }) {
         return (
-          <div>
-            {items.map((value) => {
-              return (
-                <ul>
-                  <li>
-                    <h4>{value}</h4>
-                  </li>
-                </ul>
-              );
-            })}
-          </div>
+          <>
+            {items.map((item, id) => (
+              <li key={id}>{item === "" ? "Item not found" :  item }</li>
+            ))}
+          </>
         );
       }
 
